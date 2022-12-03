@@ -1,26 +1,25 @@
 // Create a function that gets the computers choice
 function getComputerChoice() {
     // Random number between 1 and 3 (will actually be between 0 and 2)
+    let computerChoice;
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
-        console.log("Rock");
+        computerChoice = "Rock";
     } else if (randomNumber == 1) {
-        console.log("Paper");
+        computerChoice = "Paper";
     } else {
-        console.log("Scissors");
+        computerChoice = "Scissors";
     }
-    // Define assign the value of each number to a string
     // return either "Rock", "Paper", or "Scissors"
+    return computerChoice;
 }
 
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
-getComputerChoice();
+console.log(getComputerChoice());
+console.log(getComputerChoice());
+console.log(getComputerChoice());
+console.log(getComputerChoice());
+console.log(getComputerChoice());
+console.log(getComputerChoice());
 
 // Create a function that plays one round of Rock Paper Scissors
 // The function should take two values 1) playerSelection and 2) computerSelection
