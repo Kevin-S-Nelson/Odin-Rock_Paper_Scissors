@@ -24,7 +24,7 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection == "Rock") {
             roundResult = "It is a tie!";
         } else if (computerSelection == "Paper") {
-            roundResult = "You Lose! Paper beats Rock";
+            roundResult = "You Loose! Paper beats Rock";
         } else {
             roundResult = "You Win! Rock beats Scissors";
         }
@@ -37,14 +37,14 @@ function playRound(playerSelection, computerSelection) {
         } else if (computerSelection == "Paper") {
             roundResult = "It is a tie!";
         } else {
-            roundResult = "You Lose! Scissors beat Paper";
+            roundResult = "You Loose! Scissors beat Paper";
         }
         break;
     }
     // Logic for when the play has selected scissors
     while (playerSelection.toUpperCase() == "SCISSORS") {
         if (computerSelection == "Rock") {
-            roundResult = "You Lose! Rock beats Scissors";
+            roundResult = "You Loose! Rock beats Scissors";
         } else if (computerSelection == "Paper") {
             roundResult = "You Win! Scissors beat Paper";
         } else {
@@ -58,25 +58,32 @@ function playRound(playerSelection, computerSelection) {
 
 // Create a function called game() that plays 5 rounds (loop) and identifies the winner
 function game() {
-    let winCount = 0;
+    // Variables that will be used in this function
+    let playerWinCount = 0;
+    let computerWinCount = 0;
     let winCheck = "You Win!";
+    let looseCheck = "You Loose!";
+    // Play 5 instances of the game
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt('Type "Rock", "Paper", or "Scissors"');
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
-        console.log(i);
         if (playRound(playerSelection, computerSelection).includes(winCheck)) {
-            winCount++;
-            console.log("winCount = " + winCount);
+            playerWinCount++;
+        } else if (playRound(playerSelection, computerSelection).includes(looseCheck)){
+            computerWinCount++; 
         } else {
-            winCount; 
-            console.log("winCount = " + winCount);
+            playerWinCount;
+            computerWinCount;
         }
+    // Determine who the overall winner is new line for console readability
     }
-    if (winCount > 2) {
-        console.log("You won the best of 5 rounds!")
+    if (playerWinCount > computerWinCount) {
+        console.log("\nYou won the best of 5 rounds!")
+    } else if (playerWinCount < computerWinCount) {
+        console.log("\nhe computer won the best of 5 rounds!")
     } else {
-        console.log("You won the best of 5 rounds!")
+        console.log("\nNo one wins or looses, it is a tie!")
     }
 }
 
