@@ -76,12 +76,12 @@ function game() {
             playerWinCount;
             computerWinCount;
         }
-    // Determine who the overall winner is new line for console readability
     }
+    // Determine who the overall winner is new line for console readability
     if (playerWinCount > computerWinCount) {
         console.log("\nYou won the best of 5 rounds!")
     } else if (playerWinCount < computerWinCount) {
-        console.log("\nhe computer won the best of 5 rounds!")
+        console.log("\nThe computer won the best of 5 rounds!")
     } else {
         console.log("\nNo one wins or looses, it is a tie!")
     }
