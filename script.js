@@ -59,9 +59,12 @@ function playRound(playerSelection, computerSelection) {
     return roundResult;
 }
 
-// Test all forms of capitalization
-console.log(playRound("Rock", computerSelection));
-console.log(playRound("rock", computerSelection));
-console.log(playRound("ROCK", computerSelection));
-console.log(playRound("Paper", computerSelection));
-console.log(playRound("Scissors", computerSelection));
+// Create a function called game() that plays 5 rounds (loop) and identifies the winner
+function game() {
+    for (let i = 0; i < 5; i++) {
+        console.log(playRound(playerSelection, computerSelection));
+        console.log(i);
+    }
+}
+
+game();
