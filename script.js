@@ -14,9 +14,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
-
 // Create a function that plays one round of Rock Paper Scissors
 // The function should take two values 1) playerSelection and 2) computerSelection
 function playRound(playerSelection, computerSelection) {
@@ -62,6 +59,8 @@ function playRound(playerSelection, computerSelection) {
 // Create a function called game() that plays 5 rounds (loop) and identifies the winner
 function game() {
     for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt('Type "Rock", "Paper", or "Scissors"');
+        const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
         console.log(i);
     }
