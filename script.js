@@ -58,11 +58,25 @@ function playRound(playerSelection, computerSelection) {
 
 // Create a function called game() that plays 5 rounds (loop) and identifies the winner
 function game() {
+    let winCount = 0;
+    let winCheck = "You Win!";
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt('Type "Rock", "Paper", or "Scissors"');
         const computerSelection = getComputerChoice();
         console.log(playRound(playerSelection, computerSelection));
         console.log(i);
+        if (playRound(playerSelection, computerSelection).includes(winCheck)) {
+            winCount++;
+            console.log("winCount = " + winCount);
+        } else {
+            winCount; 
+            console.log("winCount = " + winCount);
+        }
+    }
+    if (winCount > 2) {
+        console.log("You won the best of 5 rounds!")
+    } else {
+        console.log("You won the best of 5 rounds!")
     }
 }
 
