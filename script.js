@@ -20,44 +20,44 @@ const computerSelection = getComputerChoice();
 // Create a function that plays one round of Rock Paper Scissors
 // The function should take two values 1) playerSelection and 2) computerSelection
 function playRound(playerSelection, computerSelection) {
-    console.log("The players choice is: " + playerSelection);
-    console.log("The computer choice is: " + computerSelection);
+    let roundResult;
     // Logic for when the play has selected rock
     while (playerSelection == "Rock") {
         if (computerSelection == "Rock") {
-            console.log("It is a tie!");
+            roundResult = "It is a tie!";
         } else if (computerSelection == "Paper") {
-            console.log("You Lose! Paper beats Rock");
+            roundResult = "You Lose! Paper beats Rock";
         } else {
-            console.log("You Win! Rock beats Scissors");
+            roundResult = "You Win! Rock beats Scissors";
         }
         break;
     }
     // Logic for when the player has selected paper
     while (playerSelection == "Paper") {
         if (computerSelection == "Rock") {
-            console.log("You Win! Paper beats Rock");
+            roundResult = "You Win! Paper beats Rock";
         } else if (computerSelection == "Paper") {
-            console.log("It is a tie!");
+            roundResult = "It is a tie!";
         } else {
-            console.log("You Lose! Scissors beat Paper");
+            roundResult = "You Lose! Scissors beat Paper";
         }
         break;
     }
     // Logic for when the play has selected scissors
     while (playerSelection == "Scissors") {
         if (computerSelection == "Rock") {
-            console.log("You Lose! Rock beats Scissors");
+            roundResult = "You Lose! Rock beats Scissors";
         } else if (computerSelection == "Paper") {
-            console.log("You Win! Scissors beat Paper");
+            roundResult = "You Win! Scissors beat Paper";
         } else {
-            console.log("It is a tie!");
+            roundResult = "It is a tie!";
         }
         break;
     }
     // return a statement stating the result
+    return roundResult;
 }
 
-playRound("Rock", computerSelection);
-playRound("Paper", computerSelection);
-playRound("Scissors", computerSelection);
+console.log(playRound("Rock", computerSelection));
+console.log(playRound("Paper", computerSelection));
+console.log(playRound("Scissors", computerSelection));
