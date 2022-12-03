@@ -1,7 +1,7 @@
 // Create a function that gets the computers choice
 function getComputerChoice() {
     // Random number between 1 and 3 (will actually be between 0 and 2)
-    let computerChoice;
+    let computerChoice = "";
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
         computerChoice = "Rock";
@@ -20,9 +20,10 @@ const computerSelection = getComputerChoice();
 // Create a function that plays one round of Rock Paper Scissors
 // The function should take two values 1) playerSelection and 2) computerSelection
 function playRound(playerSelection, computerSelection) {
-    let roundResult;
-    // Logic for when the play has selected rock
-    while (playerSelection == "Rock") {
+    let roundResult = "";
+    // Ensure all case variations of player input are accepted
+    // Logic for when the player has selected rock
+    while (playerSelection.toUpperCase() == "ROCK") {
         if (computerSelection == "Rock") {
             roundResult = "It is a tie!";
         } else if (computerSelection == "Paper") {
@@ -33,7 +34,7 @@ function playRound(playerSelection, computerSelection) {
         break;
     }
     // Logic for when the player has selected paper
-    while (playerSelection == "Paper") {
+    while (playerSelection.toUpperCase() == "PAPER") {
         if (computerSelection == "Rock") {
             roundResult = "You Win! Paper beats Rock";
         } else if (computerSelection == "Paper") {
@@ -44,7 +45,7 @@ function playRound(playerSelection, computerSelection) {
         break;
     }
     // Logic for when the play has selected scissors
-    while (playerSelection == "Scissors") {
+    while (playerSelection.toUpperCase() == "SCISSORS") {
         if (computerSelection == "Rock") {
             roundResult = "You Lose! Rock beats Scissors";
         } else if (computerSelection == "Paper") {
@@ -58,6 +59,9 @@ function playRound(playerSelection, computerSelection) {
     return roundResult;
 }
 
+// Test all forms of capitalization
 console.log(playRound("Rock", computerSelection));
+console.log(playRound("rock", computerSelection));
+console.log(playRound("ROCK", computerSelection));
 console.log(playRound("Paper", computerSelection));
 console.log(playRound("Scissors", computerSelection));
