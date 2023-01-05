@@ -56,6 +56,16 @@ function playRound(playerSelection, computerSelection) {
     return roundResult;
 }
 
+// Create a function that determines if there has been a final winner
+function checkWinner(playerWinCount, computerWinCount) {
+    if (playerWinCount > computerWinCount) {
+        //console.log("You won the best of 5 rounds!");
+        return "You won the best of 5 rounds!";
+    } else (playerWinCount < computerWinCount)
+        //console.log("The computer won the best of 5 rounds!");
+        return "The computer won the best of 5 rounds!";
+}
+
 // Create a function called game() that plays 5 rounds (loop) and identifies the winner
 function game() {
     // Variables that will be used in this function
@@ -63,30 +73,41 @@ function game() {
     let computerWinCount = 0;
     let winCheck = "You Win!";
     let looseCheck = "You Loose!";
-    const computerSelection = getComputerChoice();
+    let computerSelection = getComputerChoice();
+    let gameOver = "";
     const buttons = document.querySelectorAll('button');
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
             const playerSelection = button.id;
-            console.log(playerSelection);
-            console.log(playRound(playerSelection, computerSelection));
+            results.textContent = 'Result: ' + playRound(playerSelection, computerSelection);
             if (playRound(playerSelection, computerSelection).includes(winCheck)) {
                 playerWinCount++;
+                score.textContent = 'Human: ' + playerWinCount + ' | Computer: ' + computerWinCount;
+                if (playerWinCount == 5) {
+                    gameOver = checkWinner(playerWinCount, computerWinCount);
+                    endGame.textContent = gameOver;
+                    playerWinCount = 0;
+                    computerWinCount = 0;
+                } 
+                computerSelection = getComputerChoice(); // Creates new random result for computers next choice
             } else if (playRound(playerSelection, computerSelection).includes(looseCheck)){
                 computerWinCount++; 
+                score.textContent = 'Human: ' + playerWinCount + ' | Computer: ' + computerWinCount;
+                if (computerWinCount == 5) {
+                    gameOver = checkWinner(playerWinCount, computerWinCount);
+                    endGame.textContent = gameOver;
+                    playerWinCount = 0;
+                    computerWinCount = 0;
+                } 
+                computerSelection = getComputerChoice();
             } else {
                 playerWinCount;
                 computerWinCount;
+                score.textContent = 'Human: ' + playerWinCount + ' | Computer: ' + computerWinCount;
+                computerSelection = getComputerChoice();
             }
         });
     });
-    // if (playerWinCount > computerWinCount) {
-    //     console.log("\nYou won the best of 5 rounds!")
-    // } else if (playerWinCount < computerWinCount) {
-    //     console.log("\nThe computer won the best of 5 rounds!")
-    // } else {
-    //     console.log("\nNo one wins or looses, it is a tie!")
-    // }
 }
 
 game();
