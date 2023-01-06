@@ -88,7 +88,7 @@ function game() {
                     endGame.textContent = gameOver;
                     playerWinCount = 0;
                     computerWinCount = 0;
-                } 
+                } else endGame.textContent = "";
                 computerSelection = getComputerChoice(); // Creates new random result for computers next choice
             } else if (playRound(playerSelection, computerSelection).includes(looseCheck)){
                 computerWinCount++; 
@@ -98,13 +98,14 @@ function game() {
                     endGame.textContent = gameOver;
                     playerWinCount = 0;
                     computerWinCount = 0;
-                } 
+                } else endGame.textContent = "";
                 computerSelection = getComputerChoice();
             } else {
                 playerWinCount;
                 computerWinCount;
                 score.textContent = 'Human: ' + playerWinCount + ' | Computer: ' + computerWinCount;
                 computerSelection = getComputerChoice();
+                endGame.textContent = "";
             }
         });
     });
