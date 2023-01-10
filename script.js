@@ -1,6 +1,4 @@
-// Create a function that gets the computers choice
-function getComputerChoice() {
-    // Random number between 1 and 3 (will actually be between 0 and 2)
+function getComputerChoice() { // Computers random selection
     let computerChoice = "";
     let randomNumber = Math.floor(Math.random() * 3);
     if (randomNumber == 0) {
@@ -10,17 +8,12 @@ function getComputerChoice() {
     } else {
         computerChoice = "Scissors";
     }
-    // return either "Rock", "Paper", or "Scissors"
     return computerChoice;
 }
 
-// Create a function that plays one round of Rock Paper Scissors
-// The function should take two values 1) playerSelection and 2) computerSelection
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) { // Play one round
     let roundResult = "";
-    // Ensure all case variations of player input are accepted
-    // Logic for when the player has selected "Rock"
-    while (playerSelection == "0") { 
+    while (playerSelection == "0") { // Player chooses "Rock"
         if (computerSelection == "Rock") {
             roundResult = "It is a tie!";
         } else if (computerSelection == "Paper") {
@@ -30,8 +23,7 @@ function playRound(playerSelection, computerSelection) {
         }
         break;
     }
-    // Logic for when the player has selected "Paper"
-    while (playerSelection == "1") {
+    while (playerSelection == "1") { // Player chooses "Paper"
         if (computerSelection == "Rock") {
             roundResult = "You Win! Paper beats Rock";
         } else if (computerSelection == "Paper") {
@@ -41,8 +33,7 @@ function playRound(playerSelection, computerSelection) {
         }
         break;
     }
-    // Logic for when the play has selected "Scissors"
-    while (playerSelection == "2") {
+    while (playerSelection == "2") { // Player chooses "Scissors"
         if (computerSelection == "Rock") {
             roundResult = "You Loose! Rock beats Scissors";
         } else if (computerSelection == "Paper") {
@@ -52,18 +43,14 @@ function playRound(playerSelection, computerSelection) {
         }
         break;
     }
-    // return a statement stating the result
     return roundResult;
 }
 
-// Create a function that determines if there has been a final winner
-function checkWinner(playerWinCount, computerWinCount) {
+function checkWinner(playerWinCount, computerWinCount) { // Determine final result
     if (playerWinCount > computerWinCount) {
-        //console.log("You won the best of 5 rounds!");
-        return "You won the best of 5 rounds!";
-    } else (playerWinCount < computerWinCount)
-        //console.log("The computer won the best of 5 rounds!");
-        return "The computer won the best of 5 rounds!";
+        return "You won the best of 5 rounds! Want to try again? Select your first move below.";
+    } else 
+        return "The computer won the best of 5 rounds! Want to try again? Select your first move below.";
 }
 
 // Create a function called game() that plays 5 rounds (loop) and identifies the winner
