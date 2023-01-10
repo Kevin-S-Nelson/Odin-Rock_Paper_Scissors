@@ -53,9 +53,7 @@ function checkWinner(playerWinCount, computerWinCount) { // Determine final resu
         return "The computer won the best of 5 rounds! Want to try again? Select your first move below.";
 }
 
-// Create a function called game() that plays 5 rounds (loop) and identifies the winner
-function game() {
-    // Variables that will be used in this function
+function game() { // Play a game of Rock-Paper-Scissors
     let playerWinCount = 0;
     let computerWinCount = 0;
     let winCheck = "You Win!";
@@ -76,7 +74,7 @@ function game() {
                     playerWinCount = 0;
                     computerWinCount = 0;
                 } else endGame.textContent = "";
-                computerSelection = getComputerChoice(); // Creates new random result for computers next choice
+                computerSelection = getComputerChoice(); 
             } else if (playRound(playerSelection, computerSelection).includes(looseCheck)){
                 computerWinCount++; 
                 score.textContent = 'Human: ' + playerWinCount + ' | Computer: ' + computerWinCount;
